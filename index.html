@@ -924,6 +924,10 @@
     outline:2px solid var(--accent);
     outline-offset:3px;
   }
+  .diagram-node.is-active,
+  .diagram-center.is-active{
+    border-color:var(--accent);
+  }
   .diagram-node--defensible{grid-column:1; grid-row:1; justify-self:end; text-align:right;}
   .diagram-node--future{grid-column:3; grid-row:1; justify-self:start; text-align:left;}
   .diagram-node--control{grid-column:1; grid-row:3; justify-self:end; text-align:right;}
@@ -1969,35 +1973,36 @@
       <div class="governance-diagram reveal reveal-delay-2">
         <div class="diagram-frame" data-animated="false">
           <div class="diagram-grid" role="group" aria-label="Diagram showing governance creating resilient enterprise platforms">
-            <button type="button" class="diagram-node diagram-node--defensible" data-node="defensible" data-order="1" aria-label="Defensible recommendations. Outcomes anchored in accountability, risk and outcome.">
-              <span class="diagram-node-title">Defensible recommendations</span>
+            <button type="button" class="diagram-node diagram-node--defensible" data-node="defensible" data-order="1" aria-label="Decisions people can defend. Recommendations built around accountability, risk and decision confidence." aria-pressed="false">
+              <span class="diagram-node-title">Defensible recommendation</span>
               <p class="diagram-node-copy">Recommendations built around accountability, risk and decision confidence.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--future" data-node="future" data-order="2" aria-label="Future-fit architecture. Decisions protect the future state and avoid last-mile rewrites.">
+            <button type="button" class="diagram-node diagram-node--future" data-node="future" data-order="2" aria-label="Architecture built to evolve. A platform architecture designed to evolve without creating technical debt." aria-pressed="false">
               <span class="diagram-node-title">Future-fit architecture</span>
               <p class="diagram-node-copy">A platform architecture designed to evolve without creating technical debt.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--control" data-node="control" data-order="3" aria-label="Sustained operational control. The operating model keeps control intact through releases, reorganisations and regulatory review.">
-              <span class="diagram-node-title">Sustained operational control</span>
+            <button type="button" class="diagram-node diagram-node--control" data-node="control" data-order="3" aria-label="Control that survives change. Operations remain stable through releases, reorganisations and regulatory change." aria-pressed="false">
+              <span class="diagram-node-title">Sustainable operational control</span>
               <p class="diagram-node-copy">Operations remain stable through releases, reorgs and regulatory change.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--ai" data-node="ai" data-order="4" aria-label="AI innovation with governance. AI innovation requires governance, control and accountability to move from pilot to production safely.">
-              <span class="diagram-node-title">AI innovation with governance</span>
+            <button type="button" class="diagram-node diagram-node--ai" data-node="ai" data-order="4" aria-label="AI that moves safely into production. AI capability grows in a governed, accountable way instead of as a point solution." aria-pressed="false">
+              <span class="diagram-node-title">AI + Governance</span>
               <p class="diagram-node-copy">AI capability grows in a governed, accountable way instead of as a point solution.</p>
             </button>
-            <button type="button" class="diagram-center" data-node="center" data-order="5" aria-label="Governance-powered platform. A platform you can govern at scale.">
-              <span class="diagram-core-label">Governance-powered platform</span>
-              <span class="diagram-center-title">One operating model, one trusted platform</span>
-              <span class="diagram-center-copy">A single enterprise platform connecting governance, architecture, control and AI.</span>
+            <button type="button" class="diagram-center" data-node="center" data-order="5" aria-label="A platform people can govern at scale. One operating model connecting governance, architecture, control and AI." aria-pressed="false">
+              <span class="diagram-core-label">Governance-powered Platform</span>
+              <span class="diagram-center-title">One operational model, One trusted platform</span>
+              <span class="diagram-center-copy">A single platform connecting governance, architecture, control and AI.</span>
             </button>
             <div class="diagram-outcome" aria-label="Final outcome">
               <span class="diagram-outcome-title">Final outcome</span>
               <div class="diagram-impact-list">
                 <span>Less complexity.</span>
-                <span>Better decisions.</span>
-                <span>Stronger governance.</span>
-                <span>Trusted enterprise platforms.</span>
-                <span>Transformation that scales.</span>
+                <span>Decisions with confidence</span>
+                <span>Govern with clarity.</span>
+                <span>Trusted intelligence.</span>
+                <span>Platforms that scale under control.</span>
+                <span>Technology that delivers.</span>
               </div>
             </div>
             <svg class="diagram-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -2299,10 +2304,12 @@
     const nodes = governanceDiagram.querySelectorAll('.diagram-node, .diagram-center');
     const lines = governanceDiagram.querySelectorAll('.diagram-line');
     const getTargets = (line) => (line.dataset.targets || '').split(' ');
+    let selectedNode = null;
 
     const resetHighlights = () => {
       nodes.forEach(node => {
         node.classList.remove('is-dimmed','is-active');
+        node.setAttribute('aria-pressed', 'false');
       });
       lines.forEach(line => {
         line.classList.remove('active');
@@ -2335,8 +2342,29 @@
     nodes.forEach(node => {
       node.addEventListener('mouseenter', () => highlightNode(node));
       node.addEventListener('focus', () => highlightNode(node));
-      node.addEventListener('mouseleave', resetHighlights);
-      node.addEventListener('blur', resetHighlights);
+      node.addEventListener('mouseleave', () => {
+        if(!selectedNode) resetHighlights();
+      });
+      node.addEventListener('blur', () => {
+        if(!selectedNode) resetHighlights();
+      });
+      node.addEventListener('click', () => {
+        if(selectedNode === node){
+          selectedNode = null;
+          resetHighlights();
+          return;
+        }
+        selectedNode = node;
+        highlightNode(node);
+        node.setAttribute('aria-pressed', 'true');
+      });
+    });
+
+    governanceDiagram.addEventListener('keydown', (event) => {
+      if(event.key === 'Escape' && selectedNode){
+        selectedNode = null;
+        resetHighlights();
+      }
     });
 
     const animateDiagram = () => {
