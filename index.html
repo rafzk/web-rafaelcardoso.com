@@ -8,14 +8,77 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rafael Cardoso - ServiceNow Technology Advisor">
 <meta property="og:description" content="Helping organisations reduce complexity, strengthen governance and build enterprise platforms people trust">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://rafaelcardoso.com/rafael-cardoso.jpg">
+<meta property="og:url" content="https://rafaelcardoso.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rafael Cardoso - ServiceNow Technology Advisor">
+<meta name="twitter:description" content="Helping organisations reduce complexity, strengthen governance and build enterprise platforms people trust">
+<meta name="twitter:image" content="https://rafaelcardoso.com/rafael-cardoso.jpg">
+<link rel="canonical" href="https://rafaelcardoso.com">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="favicon-16.png" type="image/png" sizes="16x16">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rafael Cardoso",
+  "alternateName": "Raf",
+  "url": "https://rafaelcardoso.com",
+  "image": "https://rafaelcardoso.com/rafael-cardoso.jpg",
+  "jobTitle": "ServiceNow Technology Advisor",
+  "description": "Helping organisations reduce complexity, strengthen governance and build enterprise platforms people trust.",
+  "email": "hello@rafaelcardoso.com",
+  "sameAs": [
+    "https://linkedin.com/in/rafaelmcardoso",
+    "https://nowjedi.com"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Wrangu"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "ISCTE Business School"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Beira Interior"
+    }
+  ],
+  "knowsAbout": [
+    "ServiceNow",
+    "Integrated Risk Management",
+    "Governance Risk and Compliance",
+    "IT Service Management",
+    "Enterprise Architecture",
+    "Platform Governance"
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "ServiceNow Certified System Administrator (CSA)"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "ServiceNow CIS-GRC"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Certified Scrum Master"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "ServiceNow MVP"
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --white:#ffffff;
@@ -591,8 +654,30 @@
   .expertise-card ul li::before{
     content:"";
     width:4px; height:4px;
-    background:var(--grey-300);
+    background:var(--accent);
     flex-shrink:0;
+  }
+  .expertise-frameworks{
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--grey-100);
+  }
+  .expertise-frameworks-label{
+    font-family:var(--font-mono);
+    font-size:10px;
+    letter-spacing:0.06em;
+    color:var(--grey-500);
+    display:block;
+    margin-bottom:10px;
+  }
+  .expertise-frameworks-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .expertise-frameworks-row .chip{
+    font-size:10px;
+    padding:5px 9px;
   }
 
   /* ---------- Achievements ---------- */
@@ -1304,172 +1389,6 @@
     }
   }
 
-  /* ---------- Writing ---------- */
-  .writing-grid{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:24px;
-    background:none;
-    border:none;
-    padding:0;
-  }
-  .writing-card{
-    background:var(--white);
-    padding:20px 20px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    min-height:160px;
-    transition:background 0.25s ease, transform 0.2s ease;
-    width:100%;
-    border:1px solid var(--grey-100);
-    border-radius:6px;
-    text-align:left;
-    color:inherit;
-  }
-  .writing-card:hover{background:var(--grey-50); transform:translateY(-4px);}
-  .writing-topic{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--accent);
-  }
-  .writing-card h3{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:18px;
-    line-height:1.28;
-    flex-grow:1;
-    margin:0;
-  }
-  .writing-meta{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:13px;
-    color:var(--grey-600);
-    padding-top:12px;
-    border-top:1px solid var(--grey-100);
-    margin-top:auto;
-  }
-  .writing-arrow{
-    display:inline-block;
-    transition:transform 0.3s ease;
-  }
-  .writing-card:hover .writing-arrow{transform:translateX(4px);}
-
-  /* ---------- Article dialog ---------- */
-  /* Article bodies live in the DOM (indexable) and are cloned in on open. */
-  .article-sources{display:none;}
-
-  .article-dialog{
-    margin:auto;                 /* the global *{margin:0} kills dialog centring */
-    padding:0;
-    width:min(720px, calc(100vw - 32px));
-    max-height:min(84vh, 880px);
-    background:var(--white);
-    color:var(--charcoal);
-    border:1px solid var(--grey-200);
-    border-radius:2px;
-    overflow:hidden;
-  }
-  /* dialog needs display:none while closed, so only lay it out when open */
-  .article-dialog[open]{
-    display:flex;
-    flex-direction:column;
-    animation:dialog-in 0.32s cubic-bezier(.2,.7,.2,1);
-  }
-  @keyframes dialog-in{
-    from{opacity:0; transform:translateY(12px);}
-    to{opacity:1; transform:translateY(0);}
-  }
-  .article-dialog::backdrop{
-    background:rgba(20,22,26,0.55);
-    backdrop-filter:blur(3px);
-    -webkit-backdrop-filter:blur(3px);
-  }
-  /* Reduce heavy backdrop effects on small screens and for users who prefer reduced motion */
-  @media (max-width:780px){
-    .article-dialog::backdrop{backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(20,22,26,0.65);} 
-  }
-  @media (prefers-reduced-motion: reduce){
-    .article-dialog::backdrop{backdrop-filter:none; -webkit-backdrop-filter:none;}
-    .reveal{transition-duration:0.01ms !important; transition-delay:0ms !important;}
-  }
-  body.dialog-open{overflow:hidden;}
-
-  .article-dialog-head{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-between;
-    gap:24px;
-    padding:36px 40px 24px;
-    border-bottom:1px solid var(--grey-200);
-    flex-shrink:0;
-  }
-  .article-dialog-topic{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--accent);
-    display:block;
-    margin-bottom:14px;
-  }
-  .article-dialog-title{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:clamp(21px, 2.4vw, 27px);
-    line-height:1.25;
-    letter-spacing:-0.015em;
-    margin-bottom:12px;
-  }
-  .article-dialog-meta{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--grey-600);
-  }
-  .article-dialog-close{
-    position:relative;
-    width:40px; height:40px;
-    flex-shrink:0;
-    background:transparent;
-    border:1px solid var(--grey-300);
-    border-radius:2px;
-    transition:border-color 0.25s ease;
-  }
-  .article-dialog-close:hover{border-color:var(--charcoal);}
-  .article-dialog-close span{
-    position:absolute;
-    left:50%; top:50%;
-    width:14px; height:1px;
-    background:var(--charcoal);
-  }
-  .article-dialog-close span:first-child{transform:translate(-50%,-50%) rotate(45deg);}
-  .article-dialog-close span:last-child{transform:translate(-50%,-50%) rotate(-45deg);}
-
-  .article-dialog-body{
-    padding:32px 40px 40px;
-    overflow-y:auto;
-  }
-  .article-dialog-body p{
-    font-size:17px;
-    line-height:1.75;
-    color:var(--grey-700);
-    margin-bottom:20px;
-  }
-  .article-dialog-body p:last-child{margin-bottom:0;}
-  .article-dialog-body p strong{color:var(--charcoal); font-weight:600;}
-  .article-dialog-body h3{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:18px;
-    letter-spacing:-0.01em;
-    margin:34px 0 12px;
-  }
-  .article-dialog-body h3:first-child{margin-top:0;}
-
   /* ---------- Testimonials ---------- */
   .testi-grid{
     display:grid;
@@ -1721,7 +1640,6 @@
     .expertise-outcome{min-height:3em;}
     .achieve-grid{grid-template-columns:repeat(2, 1fr);}
     .why-grid{grid-template-columns:1fr; }
-    .writing-grid{grid-template-columns:1fr;}
     .testi-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr; gap:56px;}
     .hero-title span{white-space:normal;}
@@ -1735,10 +1653,6 @@
     .mobile-menu.open{display:block;}
   }
   @media (max-width: 600px){
-    .article-dialog{max-height:92vh; width:calc(100vw - 20px);}
-    .article-dialog-head{padding:28px 24px 20px;}
-    .article-dialog-body{padding:24px 24px 32px;}
-    .article-dialog-body p{font-size:16px;}
     .expertise-grid{grid-template-columns:1fr;}
     .expertise-outcome{min-height:0;}
     .achieve-grid{grid-template-columns:1fr;}
@@ -1794,7 +1708,6 @@
         <a href="#about">About</a>
         <a href="#expertise">Expertise</a>
         <a href="#work">Work</a>
-        <a href="#writing">Insights</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
@@ -1808,7 +1721,6 @@
       <a href="#about">About</a>
       <a href="#expertise">Expertise</a>
       <a href="#work">Work</a>
-      <a href="#writing">Insights</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="btn btn-primary mobile-menu-cta">Start a conversation</a>
     </div>
@@ -1933,26 +1845,51 @@
             <li>Capability operating model</li>
             <li>Platform risk controls</li>
           </ul>
+          <div class="expertise-frameworks">
+            <span class="expertise-frameworks-label">Aligned frameworks</span>
+            <div class="expertise-frameworks-row">
+              <span class="chip">NIST</span>
+              <span class="chip">SOC 2</span>
+              <span class="chip">SOX</span>
+              <span class="chip">ISO 27001</span>
+              <span class="chip">COBIT</span>
+            </div>
+          </div>
         </div>
         <div class="expertise-card">
-          <span class="expertise-index">02 / Intelligence</span>
-          <h3>Enterprise AI with guardrails</h3>
-          <p class="expertise-outcome">AI and automation that strengthen oversight, not bypass it, so the platform stays auditable and accountable.</p>
-          <ul>
-            <li>Governed automation</li>
-            <li>Decision support workflows</li>
-            <li>AI operating model</li>
-          </ul>
-        </div>
-        <div class="expertise-card">
-          <span class="expertise-index">03 / Structure</span>
+          <span class="expertise-index">02 / Structure</span>
           <h3>Architecture that endures</h3>
-          <p class="expertise-outcome">A coherent architecture that keeps growing programmes aligned to the same business intent.</p>
+          <p class="expertise-outcome">A coherent architecture that keeps growing programmes aligned to the same business intent, even as scope, teams and vendors change.</p>
           <ul>
             <li>Platform governance architecture</li>
             <li>Solution architecture for complex estates</li>
             <li>Technical leadership for change</li>
           </ul>
+          <div class="expertise-frameworks">
+            <span class="expertise-frameworks-label">Deliverables</span>
+            <div class="expertise-frameworks-row">
+              <span class="chip">Solution documentation</span>
+              <span class="chip">Process documentation</span>
+              <span class="chip">Architecture diagrams</span>
+              <span class="chip">Workshops</span>
+            </div>
+          </div>
+        </div>
+        <div class="expertise-card">
+          <span class="expertise-index">03 / Intelligence</span>
+          <h3>AI within the control framework</h3>
+          <p class="expertise-outcome">AI and automation built to the same governance standard as everything else on the platform — auditable, accountable, mapped to risk and compliance.</p>
+          <ul>
+            <li>Governed automation</li>
+            <li>Script-driven decision support</li>
+            <li>AI risk & controls model</li>
+          </ul>
+          <div class="expertise-frameworks">
+            <span class="expertise-frameworks-label">Aligned frameworks</span>
+            <div class="expertise-frameworks-row">
+              <span class="chip">EU AI Act</span>
+            </div>
+          </div>
         </div>
         <div class="expertise-card">
           <span class="expertise-index">04 / Delivery</span>
@@ -1963,6 +1900,13 @@
             <li>Programme coherence</li>
             <li>Transformation governance</li>
           </ul>
+          <div class="expertise-frameworks">
+            <span class="expertise-frameworks-label">Aligned frameworks</span>
+            <div class="expertise-frameworks-row">
+              <span class="chip">ServiceNow Maturity Program</span>
+              <span class="chip">NOW Methodology</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2013,7 +1957,7 @@
   </section>
 
   <!-- ================= WHY WORK WITH ME ================= -->
-  <section class="section">
+  <section class="section" id="why">
     <span class="coord tr">WHY-04</span>
     <div class="wrap">
       <div class="section-head">
@@ -2161,124 +2105,9 @@
     </div>
   </section>
 
-  <!-- ================= WRITING ================= -->
-  <section class="section" id="writing">
-    <span class="coord tr">WRITING-06</span>
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="section-eyebrow reveal">Thought leadership</span>
-          <h2 class="reveal reveal-delay-1">Field notes for platform leaders.</h2>
-        </div>
-        <p class="section-desc reveal reveal-delay-2">Short, direct insight on governance, architecture and the practical edge of enterprise AI.</p>
-      </div>
-
-      <div class="writing-grid reveal">
-        <button type="button" class="writing-card" data-article="agentic-workflows">
-          <span class="writing-topic">Enterprise AI</span>
-          <h3>Where agentic workflows belong inside a governed enterprise platform</h3>
-          <div class="writing-meta"><span>6 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-        <button type="button" class="writing-card" data-article="csdm-foundation">
-          <span class="writing-topic">Platform strategy</span>
-          <h3>CSDM as the foundation, not a clean-up project</h3>
-          <div class="writing-meta"><span>5 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-        <button type="button" class="writing-card" data-article="regulated-risk">
-          <span class="writing-topic">Governance</span>
-          <h3>How regulated industries make risk accountable and why platforms usually miss the last mile</h3>
-          <div class="writing-meta"><span>7 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-        <button type="button" class="writing-card" data-article="three-year-platform">
-          <span class="writing-topic">Architecture</span>
-          <h3>Designing for the platform you need in three years, not the one you have today</h3>
-          <div class="writing-meta"><span>4 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-        <button type="button" class="writing-card" data-article="technical-credibility">
-          <span class="writing-topic">Leadership</span>
-          <h3>Technical credibility is the currency that keeps enterprise programmes honest</h3>
-          <div class="writing-meta"><span>5 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-        <button type="button" class="writing-card" data-article="enterprise-search">
-          <span class="writing-topic">Enterprise AI</span>
-          <h3>Enterprise search is a governance problem, not an AI one</h3>
-          <div class="writing-meta"><span>6 min read</span><span class="writing-arrow">→</span></div>
-        </button>
-      </div>
-
-      <!-- ============================================================
-           ARTICLE BODIES - edit the prose here.
-           Each block's id must be "article-" + the card's data-article.
-           Use <p> for paragraphs, <h3> for subheads, <strong> to emphasise.
-           ============================================================ -->
-      <div class="article-sources" hidden>
-
-        <div id="article-agentic-workflows">
-          <p>Most agentic pilots fail the same way. They work beautifully in a demo, then meet an environment where every action has an owner, an audit trail and a control that someone signed their name against and there is no obvious place to put them.</p>
-          <p>The instinct is to treat governance as the thing slowing the agent down. It isn't. Governance is the thing that tells you what the agent is allowed to be confident about. An agent that can raise a change request but not approve it, that can draft a risk assessment but not close it, that can gather evidence but not attest to it - that agent has a defensible place in the operating model.</p>
-          <p>The useful question is not "what can the agent do?" but "which decisions are we prepared to let it prepare, and which must a human still own?" Answer that first and the architecture follows. Answer it last and you will be retrofitting controls onto something already in production.</p>
-          <p>In practice this means agents earn their place at the edges of a workflow rather than the centre: assembling context, reconciling records, drafting the first version, flagging what looks wrong. The centre - the decision, the approval, the accountability - stays where the regulator expects to find it.</p>
-        </div>
-
-        <div id="article-csdm-foundation">
-          <p>CSDM gets adopted in one of two ways. Either it is the model everything else is built on, or it is the clean-up project someone proposes in year two. The second is far more common, and far more expensive.</p>
-          <p>The reason is that CSDM is not really a data model exercise. It is an agreement about what a service <strong>is</strong> - who owns it, what it depends on, what it costs, what breaks when it fails. Every one of those questions is organisational before it is technical. Deferring the model defers the agreement, and the agreement is the hard part.</p>
-          <p>Platforms that skip it do not fail immediately. They accumulate a CMDB that is technically populated and practically untrusted, reporting that nobody quite believes, and a growing gap between the service catalogue customers see and the services the business actually runs.</p>
-          <p>Getting it right early costs weeks of workshops that feel slow at the time. Getting it wrong costs a re-architecture, and the credibility of everyone who said the platform was ready.</p>
-        </div>
-
-        <div id="article-regulated-risk">
-          <p>Regulated industries are often described as slow. That framing misses what they are actually good at, which is refusing to let a control exist without an owner. In a bank or an insurer, "who is accountable for this" has a real answer, and that answer is written down somewhere a regulator can find it.</p>
-          <p>Platforms are generally worse at this than the organisations that buy them. They model risks, controls and issues as records, and they model ownership as a reference field. But accountability is not a field. It is a chain - from the control to the person, to the committee, to the report that reaches the board and most implementations only build the first link.</p>
-          <h3>Where it breaks</h3>
-          <p>The failure shows up at attestation time. Evidence exists but cannot be traced to the control it supports. Controls exist but map to a version of the business that reorganised eighteen months ago. Nothing is technically wrong, and nothing can be defended quickly.</p>
-          <p>The fix is unglamorous: model the chain, not the record. Make ownership survive a reorganisation. Make evidence point back at the thing it proves. Do that and the annual scramble becomes a report you can run.</p>
-        </div>
-
-        <div id="article-three-year-platform">
-          <p>Every platform decision is a bet on what the organisation will look like later. Most are made as though the answer is "the same, but bigger."</p>
-          <p>That assumption is what produces the customisation that made perfect sense for one team and now blocks an upgrade, the integration built for a system that has since been replaced, and the process that encodes an approval hierarchy nobody uses any more.</p>
-          <p>Designing for year three does not mean building for imagined requirements. It means being deliberate about which decisions are cheap to reverse and which are not. Configuration is cheap. A data model is not. A naming convention is cheap. An identity and access design is not. Spend the architectural effort on the expensive ones and stay flexible everywhere else.</p>
-          <p>The test I find most useful: if this decision turns out to be wrong, who has to be in the room to change it? If the answer is one team, proceed. If the answer is a steering committee, slow down.</p>
-        </div>
-
-        <div id="article-technical-credibility">
-          <p>Programme leadership is usually described in terms of governance, reporting and stakeholder management. Those matter. But the thing that actually determines whether a technical programme holds together is whether the people building it believe the person leading it understands what they are building.</p>
-          <p>That belief is not established in a steering committee. It is established the first time a leader asks a question specific enough that it could only come from someone who has read the design and then does something useful with the answer.</p>
-          <p>The practical consequence is that credibility buys you honest status. Teams that trust their leader technically will tell them a date is unrealistic eight weeks out. Teams that don't will tell them the week before. Everything else about programme control is downstream of which of those two conversations you are having.</p>
-          <p>It does not require being the best engineer in the room. It requires being able to tell when the room is avoiding a problem.</p>
-        </div>
-
-        <div id="article-enterprise-search">
-          <p>Enterprise search projects are commissioned as capability problems and fail as permission problems. The retrieval works. The ranking is fine. The issue is that the index now contains documents that some of the people searching it were never meant to see.</p>
-          <p>Adding a language model on top raises the stakes rather than solving it. A search result at least shows a user a link they may not be able to open. A generated answer quietly summarises the contents of that link into the reply.</p>
-          <h3>The order of operations</h3>
-          <p>Governance has to come first, and it has to come at the document level. Which sources are in scope. What the classification actually is, as opposed to what it is supposed to be. Whose permissions are enforced at query time rather than assumed at index time. What is logged when an answer is generated, and who can review it.</p>
-          <p>None of this is exciting, and all of it determines whether the thing can be deployed beyond a pilot group. Enterprise search is a governance programme with a search interface attached - organisations that treat it that way ship it, and organisations that treat it as an AI project tend not to.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= ARTICLE DIALOG ================= -->
-  <dialog class="article-dialog" id="article-dialog" aria-labelledby="article-dialog-title">
-    <div class="article-dialog-head">
-      <div>
-        <span class="article-dialog-topic" id="article-dialog-topic"></span>
-        <h2 class="article-dialog-title" id="article-dialog-title"></h2>
-        <span class="article-dialog-meta" id="article-dialog-meta"></span>
-      </div>
-      <button type="button" class="article-dialog-close" id="article-dialog-close" aria-label="Close article">
-        <span></span><span></span>
-      </button>
-    </div>
-    <div class="article-dialog-body" id="article-dialog-body" tabindex="0"></div>
-  </dialog>
-
   <!-- ================= TESTIMONIALS ================= -->
   <section class="section">
-    <span class="coord tr">TRUST-07</span>
+    <span class="coord tr">TRUST-06</span>
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -2329,7 +2158,7 @@
 
   <!-- ================= CONTACT ================= -->
   <section class="section" id="contact">
-    <span class="coord tr">CONTACT-08</span>
+    <span class="coord tr">CONTACT-07</span>
     <div class="wrap">
       <div class="contact-grid">
         <div class="contact-left reveal">
@@ -2400,7 +2229,6 @@
             <a href="#about">About</a>
             <a href="#expertise">Expertise</a>
             <a href="#work">Work</a>
-            <a href="#writing">Insights</a>
           </div>
           <div class="footer-col">
             <span class="h">Connect</span>
@@ -2610,47 +2438,6 @@
         });
       }
     }
-  });
-
-  // Article dialog - native <dialog> gives us focus trapping, Esc and
-  // focus restore for free; we only wire up content and scroll locking.
-  const articleDialog = document.getElementById('article-dialog');
-  const articleTopic  = document.getElementById('article-dialog-topic');
-  const articleTitle  = document.getElementById('article-dialog-title');
-  const articleMeta   = document.getElementById('article-dialog-meta');
-  const articleBody   = document.getElementById('article-dialog-body');
-
-  document.querySelectorAll('.writing-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const source = document.getElementById('article-' + card.dataset.article);
-      if(!source) return;
-
-      // Card is the single source of truth for topic/title/read time
-      articleTopic.textContent = card.querySelector('.writing-topic').textContent;
-      articleTitle.textContent = card.querySelector('h3').textContent;
-      articleMeta.textContent  = card.querySelector('.writing-meta span').textContent;
-
-      articleBody.replaceChildren(...Array.from(source.cloneNode(true).children));
-      articleBody.scrollTop = 0;
-
-      document.body.classList.add('dialog-open');
-      articleDialog.showModal();
-    });
-  });
-
-  document.getElementById('article-dialog-close').addEventListener('click', () => {
-    articleDialog.close();
-  });
-
-  // Clicking the backdrop targets the dialog element itself
-  articleDialog.addEventListener('click', (e) => {
-    if(e.target === articleDialog) articleDialog.close();
-  });
-
-  // Fires for the close button, the backdrop and Esc alike
-  articleDialog.addEventListener('close', () => {
-    document.body.classList.remove('dialog-open');
-    articleBody.replaceChildren();
   });
 
   // Contact form - submits to Web3Forms (https://web3forms.com)
