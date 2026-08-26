@@ -92,6 +92,7 @@
        only 3.2:1 on white. Small text must use grey-600 (5.3:1) to meet AA. */
     --grey-500:#8a909c;
     --grey-600:#666c78;
+    --grey-650:#5f6773;
     --grey-700:#454a55;
     --accent:#0f62fe;
     --accent-dim:#3d7bfe;
@@ -789,19 +790,30 @@
   .diagram-frame{
     position:relative;
     width:100%;
-    max-width:1040px;
-    margin:auto;
-    overflow:hidden;
+    max-width:1080px;
+    margin:0 auto;
+    overflow:visible;
     min-width:0;
+    padding:12px 8px 0;
   }
   .diagram-grid{
     position:relative;
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(360px,420px) minmax(0,1fr);
-    grid-template-rows:auto minmax(260px,1fr) auto auto;
-    gap:32px;
+    grid-template-columns:minmax(0,1fr) minmax(280px,360px) minmax(0,1fr);
+    grid-template-rows:auto auto auto;
+    gap:26px;
     align-items:center;
-    min-height:600px;
+    min-height:520px;
+    padding:18px 10px 0;
+  }
+  .diagram-grid::before{
+    content:"";
+    position:absolute;
+    inset:8px 13% 52px;
+    border:1px solid rgba(15,18,25,0.06);
+    border-radius:32px;
+    background:linear-gradient(180deg, rgba(15,98,254,0.03), rgba(15,98,254,0));
+    z-index:0;
   }
   .diagram-lines{
     position:absolute;
@@ -809,94 +821,123 @@
     width:100%;
     height:100%;
     pointer-events:none;
+    z-index:1;
   }
   .diagram-line{
-    stroke:var(--grey-300);
-    stroke-width:1.4;
+    fill:none;
+    stroke:rgba(15,18,25,0.18);
+    stroke-width:1.3;
     stroke-linecap:round;
-    opacity:0;
-    stroke-dasharray:24;
-    stroke-dashoffset:24;
-    transition:stroke 0.32s ease, stroke-dashoffset 0.72s ease, opacity 0.32s ease;
+    transition:stroke 0.28s ease, opacity 0.28s ease;
   }
-  .diagram-line:nth-of-type(1){transition-delay:0.20s;}
-  .diagram-line:nth-of-type(2){transition-delay:0.24s;}
-  .diagram-line:nth-of-type(3){transition-delay:0.28s;}
-  .diagram-line:nth-of-type(4){transition-delay:0.32s;}
-  .diagram-line:nth-of-type(5){transition-delay:0.36s;}
-  .diagram-frame.is-ready .diagram-line{
-    opacity:1;
-    stroke-dashoffset:0;
+  .diagram-line.active{
+    stroke:var(--accent);
+    stroke-width:1.8;
+  }
+  .diagram-frame.animate-pulse .diagram-line{
+    animation:line-glow 3.6s ease-in-out infinite;
+  }
+  @keyframes line-glow{
+    0%,100%{opacity:0.7;}
+    50%{opacity:1;}
   }
   .diagram-node,
   .diagram-center{
     position:relative;
     z-index:2;
     width:100%;
-    max-width:360px;
-    min-width:240px;
-    padding:32px 32px;
-    border:1px solid var(--grey-200);
-    border-radius:24px;
-    background:var(--white);
-    box-shadow:0 26px 64px rgba(15,18,25,0.055);
-    transition:transform 0.32s ease, border-color 0.28s ease, box-shadow 0.32s ease, opacity 0.28s ease;
+    max-width:320px;
+    min-width:220px;
+    padding:24px 22px 22px;
+    border:1px solid rgba(15,18,25,0.08);
+    border-radius:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,247,250,0.94));
+    box-shadow:0 18px 36px rgba(15,18,25,0.03), inset 0 1px 0 rgba(255,255,255,0.9);
+    transition:transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, opacity 0.28s ease, background 0.28s ease;
     opacity:0;
-    transform:translateY(14px) scale(0.98);
+    transform:translateY(18px) scale(0.98);
     cursor:pointer;
     text-align:left;
-    min-height:160px;
+    min-height:156px;
+    appearance:none;
+  }
+  .diagram-node::before,
+  .diagram-center::before{
+    content:"";
+    position:absolute;
+    left:22px;
+    top:14px;
+    width:52px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg, rgba(15,98,254,0.72), rgba(15,98,254,0.18));
+    pointer-events:none;
+  }
+  .diagram-center::before{
+    left:50%;
+    transform:translateX(-50%);
   }
   .diagram-center{
     grid-column:2;
     grid-row:2;
-    max-width:420px;
-    min-width:280px;
+    max-width:360px;
+    min-width:250px;
     text-align:center;
-    min-height:190px;
+    min-height:188px;
+    padding-top:36px;
+    background:linear-gradient(180deg, rgba(15,98,254,0.045), rgba(255,255,255,1) 28%, rgba(247,248,250,0.96) 100%);
+    box-shadow:0 24px 52px rgba(15,98,254,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+  .diagram-center::before{
+    left:50%;
+    top:16px;
+    width:72px;
+    transform:translateX(-50%);
+    height:2px;
+    background:linear-gradient(90deg, rgba(15,98,254,0.72), rgba(15,98,254,0.2));
   }
   .diagram-center .diagram-core-label{
     font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.18em;
+    font-size:10px;
+    letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--grey-500);
-    margin-bottom:14px;
+    margin-bottom:12px;
     display:block;
   }
   .diagram-center .diagram-center-title{
     display:block;
     font-family:var(--font-display);
     font-weight:700;
-    font-size:24px;
+    font-size:clamp(22px, 2vw, 26px);
     letter-spacing:-0.02em;
-    margin-bottom:14px;
+    margin-bottom:8px;
   }
   .diagram-center .diagram-center-copy{
     display:block;
-    font-size:16px;
-    line-height:1.85;
+    font-size:15px;
+    line-height:1.7;
     color:var(--grey-650);
     opacity:0.9;
   }
   .diagram-node{
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:10px;
   }
   .diagram-node-title{
     display:block;
     font-family:var(--font-display);
     font-weight:600;
-    font-size:18px;
+    font-size:16px;
     line-height:1.25;
     letter-spacing:-0.01em;
   }
   .diagram-node-copy{
-    font-size:15px;
-    line-height:1.8;
-    color:var(--grey-600);
-    opacity:0.72;
+    font-size:14px;
+    line-height:1.65;
+    color:var(--grey-650);
+    opacity:0.8;
     transform:translateY(2px);
     transition:opacity 0.28s ease, transform 0.28s ease;
   }
@@ -904,9 +945,9 @@
   .diagram-node:focus-visible,
   .diagram-center:hover,
   .diagram-center:focus-visible{
-    transform:translateY(-2px) scale(1.001);
-    border-color:var(--charcoal);
-    box-shadow:0 34px 84px rgba(15,18,25,0.085);
+    transform:translateY(-4px);
+    border-color:rgba(15,18,25,0.12);
+    box-shadow:0 28px 60px rgba(15,18,25,0.08);
   }
   .diagram-node:hover .diagram-node-copy,
   .diagram-node:focus-visible .diagram-node-copy,
@@ -926,7 +967,8 @@
   }
   .diagram-node.is-active,
   .diagram-center.is-active{
-    border-color:var(--accent);
+    border-color:rgba(15,98,254,0.62);
+    box-shadow:0 28px 60px rgba(15,98,254,0.09);
   }
   .diagram-node--defensible{grid-column:1; grid-row:1; justify-self:end; text-align:right;}
   .diagram-node--future{grid-column:3; grid-row:1; justify-self:start; text-align:left;}
@@ -936,15 +978,18 @@
     grid-column:2;
     grid-row:4;
     justify-self:center;
-    max-width:420px;
-    padding:24px 0 0;
+    max-width:500px;
+    padding:18px 20px;
     text-align:center;
     color:var(--grey-700);
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+    display:grid;
+    gap:14px;
+    border:1px solid rgba(15,18,25,0.08);
+    border-radius:18px;
+    background:rgba(255,255,255,0.96);
+    box-shadow:0 18px 38px rgba(15,18,25,0.04);
     opacity:0;
-    transform:translateY(14px);
+    transform:translateY(12px);
     transition:opacity 0.4s ease 1.1s, transform 0.4s ease 1.1s;
   }
   .diagram-outcome-title{
@@ -953,16 +998,17 @@
     letter-spacing:0.18em;
     text-transform:uppercase;
     color:var(--grey-500);
-    margin-bottom:6px;
   }
   .diagram-impact-list{
     display:grid;
-    gap:10px;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:8px 18px;
+    text-align:left;
   }
   .diagram-impact-list span{
     display:block;
-    font-size:15px;
-    line-height:1.8;
+    font-size:14px;
+    line-height:1.5;
     color:var(--grey-700);
   }
   .diagram-impact-list span::before{
@@ -985,14 +1031,14 @@
   .diagram-frame.is-ready .diagram-outcome{opacity:1; transform:translateY(0);}
   .diagram-line.active{
     stroke:var(--accent);
-    stroke-width:2.2;
+    stroke-width:1.8;
   }
   .diagram-frame.animate-pulse .diagram-line{
-    animation:line-pulse 3.6s ease-in-out infinite;
+    animation:line-glow 3.6s ease-in-out infinite;
   }
-  @keyframes line-pulse{
-    0%,100%{stroke-dashoffset:0;stroke-opacity:1;}
-    50%{stroke-dashoffset:8;stroke-opacity:0.72;}
+  @keyframes line-glow{
+    0%,100%{opacity:0.7;}
+    50%{opacity:1;}
   }
   @media (max-width: 980px){
     .diagram-grid{
@@ -1998,20 +2044,12 @@
               <span class="diagram-outcome-title">Final outcome</span>
               <div class="diagram-impact-list">
                 <span>Less complexity.</span>
-                <span>Decisions with confidence</span>
-                <span>Govern with clarity.</span>
+                <span>Clearer decisions.</span>
+                <span>Governed at scale.</span>
                 <span>Trusted intelligence.</span>
-                <span>Platforms that scale under control.</span>
-                <span>Technology that delivers.</span>
               </div>
             </div>
-            <svg class="diagram-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <line class="diagram-line" data-targets="defensible center" x1="24" y1="18" x2="50" y2="42" />
-              <line class="diagram-line" data-targets="future center" x1="76" y1="18" x2="50" y2="42" />
-              <line class="diagram-line" data-targets="control center" x1="24" y1="78" x2="50" y2="58" />
-              <line class="diagram-line" data-targets="ai center" x1="76" y1="78" x2="50" y2="58" />
-              <line class="diagram-line" data-targets="center outcome" x1="50" y1="58" x2="50" y2="82" />
-            </svg>
+            <canvas class="diagram-lines" aria-hidden="true"></canvas>
           </div>
         </div>
       </div>
@@ -2302,8 +2340,100 @@
   const governanceDiagram = document.querySelector('.governance-diagram .diagram-frame');
   if(governanceDiagram){
     const nodes = governanceDiagram.querySelectorAll('.diagram-node, .diagram-center');
-    const lines = governanceDiagram.querySelectorAll('.diagram-line');
-    const getTargets = (line) => (line.dataset.targets || '').split(' ');
+    const canvas = governanceDiagram.querySelector('canvas.diagram-lines');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+
+    // connector definitions: from node key → to node key
+    const connectorDefs = [
+      { from:'defensible', to:'center' },
+      { from:'future',     to:'center' },
+      { from:'control',    to:'center' },
+      { from:'ai',         to:'center' },
+      { from:'center',     to:'outcome' },
+    ];
+
+    // active connector states for highlight rendering
+    let activeConnectors = new Set(); // set of "from-to" strings
+
+    const getNodeEl = (key) => governanceDiagram.querySelector(
+      key === 'outcome' ? '.diagram-outcome' : `[data-node="${key}"]`
+    );
+
+    // Compute anchor point on the near edge of a card toward another card
+    const edgePoint = (fromRect, toRect, svgRect) => {
+      const fx = fromRect.left + fromRect.width/2  - svgRect.left;
+      const fy = fromRect.top  + fromRect.height/2 - svgRect.top;
+      const tx = toRect.left   + toRect.width/2    - svgRect.left;
+      const ty = toRect.top    + toRect.height/2   - svgRect.top;
+
+      const dx = tx - fx, dy = ty - fy;
+      // pick the edge side
+      const scaleX = dx !== 0 ? (fromRect.width/2)  / Math.abs(dx) : Infinity;
+      const scaleY = dy !== 0 ? (fromRect.height/2) / Math.abs(dy) : Infinity;
+      const scale  = Math.min(scaleX, scaleY) * 0.92; // stop slightly inside edge
+      return { x: fx + dx * scale, y: fy + dy * scale };
+    };
+
+    const drawArrow = (ctx, x1, y1, x2, y2, color, lineWidth) => {
+      const headLen = 6;
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const ex = x2 - Math.cos(angle) * headLen * 0.5;
+      const ey = y2 - Math.sin(angle) * headLen * 0.5;
+
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(ex, ey);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // slim arrowhead
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(
+        x2 - headLen * Math.cos(angle - 0.32),
+        y2 - headLen * Math.sin(angle - 0.32)
+      );
+      ctx.lineTo(
+        x2 - headLen * Math.cos(angle + 0.32),
+        y2 - headLen * Math.sin(angle + 0.32)
+      );
+      ctx.closePath();
+      ctx.fillStyle = color;
+      ctx.fill();
+    };
+
+    const redrawCanvas = () => {
+      if(!ctx) return;
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      if(isMobile){ ctx.clearRect(0,0,canvas.width,canvas.height); return; }
+
+      const dpr = window.devicePixelRatio || 1;
+      const svgRect = canvas.getBoundingClientRect();
+      canvas.width  = svgRect.width  * dpr;
+      canvas.height = svgRect.height * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, svgRect.width, svgRect.height);
+
+      connectorDefs.forEach(({ from, to }) => {
+        const fromEl = getNodeEl(from);
+        const toEl   = getNodeEl(to);
+        if(!fromEl || !toEl) return;
+
+        const fromRect = fromEl.getBoundingClientRect();
+        const toRect   = toEl.getBoundingClientRect();
+        const p1 = edgePoint(fromRect, toRect, svgRect);
+        const p2 = edgePoint(toRect, fromRect, svgRect);
+
+        const key = `${from}-${to}`;
+        const isActive = activeConnectors.has(key);
+        const color = isActive ? 'rgba(15,98,254,1)' : 'rgba(15,18,25,0.18)';
+        const lw    = isActive ? 1.8 : 1.3;
+        drawArrow(ctx, p1.x, p1.y, p2.x, p2.y, color, lw);
+      });
+    };
+
     let selectedNode = null;
 
     const resetHighlights = () => {
@@ -2311,24 +2441,19 @@
         node.classList.remove('is-dimmed','is-active');
         node.setAttribute('aria-pressed', 'false');
       });
-      lines.forEach(line => {
-        line.classList.remove('active');
-        line.style.opacity = '';
-      });
+      activeConnectors.clear();
+      redrawCanvas();
     };
 
     const highlightNode = (activeNode) => {
       const activeKey = activeNode.dataset.node;
       const connected = new Set();
-      lines.forEach(line => {
-        const targets = getTargets(line);
-        if(targets.includes(activeKey)){
-          targets.forEach(target => connected.add(target));
-          line.classList.add('active');
-          line.style.opacity = '1';
-        } else {
-          line.classList.remove('active');
-          line.style.opacity = '0.18';
+      activeConnectors.clear();
+      connectorDefs.forEach(({ from, to }) => {
+        if(from === activeKey || to === activeKey){
+          activeConnectors.add(`${from}-${to}`);
+          connected.add(from);
+          connected.add(to);
         }
       });
       nodes.forEach(node => {
@@ -2337,6 +2462,7 @@
         node.classList.toggle('is-dimmed', !isConnected);
         node.classList.toggle('is-active', node === activeNode);
       });
+      redrawCanvas();
     };
 
     nodes.forEach(node => {
@@ -2370,15 +2496,13 @@
     const animateDiagram = () => {
       const startAnimation = () => {
         governanceDiagram.classList.add('is-ready');
+        redrawCanvas();
         setTimeout(() => governanceDiagram.classList.add('animate-pulse'), 860);
       };
 
       if(prefersReduced){
         governanceDiagram.classList.add('is-ready');
-        lines.forEach(line => {
-          line.style.strokeDashoffset = '0';
-          line.style.opacity = '1';
-        });
+        redrawCanvas();
       } else {
         const diagramObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
@@ -2390,6 +2514,9 @@
         }, { threshold: 0.2 });
         diagramObserver.observe(governanceDiagram);
       }
+
+      // Redraw on resize (canvas needs new dimensions)
+      window.addEventListener('resize', () => requestAnimationFrame(redrawCanvas), { passive: true });
 
       const mobileObserver = window.matchMedia('(max-width: 700px)');
       if(mobileObserver.matches){
