@@ -487,12 +487,7 @@
     border-top:1px solid var(--grey-200);
   }
   .section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:40px;
     margin-bottom:72px;
-    flex-wrap:wrap;
   }
   .section-eyebrow{
     font-family:var(--font-mono);
@@ -515,12 +510,9 @@
   .section-desc{
     font-size:16px;
     color:var(--grey-600);
-    max-width:420px;
+    max-width:480px;
     line-height:1.65;
-    padding-bottom:4px;
-  }
-  #work .section-desc{
-    max-width:640px;
+    margin-top:16px;
   }
 
   /* ---------- About ---------- */
@@ -1269,7 +1261,6 @@
     .hero-sub{max-width:100%;}
     .hero-meta-row{grid-template-columns:1fr; gap:20px;}
     .hero-meta-row.hero-meta-pair{grid-template-columns:repeat(2, minmax(0, 1fr)); justify-content:space-between; gap:20px;}
-    .section-head{gap:24px;}
     .footer-bottom{flex-direction:column; align-items:flex-start; gap:12px;}
     .nav-links{display:none;}
     .hamburger{display:flex;}
@@ -1454,8 +1445,8 @@
         <div>
           <span class="section-eyebrow reveal">What I do</span>
           <h2 class="reveal reveal-delay-1">The Four Pillars</h2>
+          <p class="section-desc reveal reveal-delay-2">Strategy, architecture, governance and delivery, aligned so change happens with less risk and more momentum.</p>
         </div>
-        <p class="section-desc reveal reveal-delay-2">Strategy, architecture, governance and delivery, aligned so change happens with less risk and more momentum.</p>
       </div>
 
       <div class="expertise-grid reveal">
@@ -1659,8 +1650,8 @@
         <div>
           <span class="section-eyebrow reveal">Community</span>
           <h2 class="reveal reveal-delay-1">Where I show up outside client work.</h2>
+          <p class="section-desc reveal reveal-delay-2">A ServiceNow MVP, occasional writer, and always happy to talk shop.</p>
         </div>
-        <p class="section-desc reveal reveal-delay-2">A ServiceNow MVP, occasional writer, and always happy to talk shop.</p>
       </div>
       <div class="community-grid reveal">
         <div class="community-card">
