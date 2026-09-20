@@ -667,7 +667,7 @@
     font-family:var(--font-mono);
     font-size:10px;
     letter-spacing:0.06em;
-    color:var(--grey-500);
+    color:var(--grey-600);
     display:block;
     margin-bottom:10px;
   }
@@ -901,7 +901,7 @@
     font-size:10px;
     letter-spacing:0.12em;
     text-transform:uppercase;
-    color:var(--grey-500);
+    color:var(--grey-600);
     margin-bottom:12px;
     display:block;
   }
@@ -997,7 +997,7 @@
     font-size:11px;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--grey-500);
+    color:var(--grey-600);
   }
   .diagram-impact-list{
     display:grid;
@@ -1029,17 +1029,6 @@
   .diagram-frame.is-ready .diagram-node[data-order="4"]{transition-delay:0.76s;}
   .diagram-frame.is-ready .diagram-center{transition-delay:0.28s;}
   .diagram-frame.is-ready .diagram-outcome{opacity:1; transform:translateY(0);}
-  .diagram-line.active{
-    stroke:var(--accent);
-    stroke-width:1.8;
-  }
-  .diagram-frame.animate-pulse .diagram-line{
-    animation:line-glow 3.6s ease-in-out infinite;
-  }
-  @keyframes line-glow{
-    0%,100%{opacity:0.7;}
-    50%{opacity:1;}
-  }
   @media (max-width: 980px){
     .diagram-grid{
       grid-template-columns:minmax(0,1fr) minmax(280px,340px) minmax(0,1fr);
@@ -1308,7 +1297,7 @@
   .timeline-date{
     font-family:var(--font-mono);
     font-size:11px;
-    color:var(--grey-500);
+    color:var(--grey-600);
     letter-spacing:0.14em;
     text-transform:uppercase;
     margin:0;
@@ -1341,7 +1330,7 @@
     font-size:11px;
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--grey-500);
+    color:var(--grey-600);
   }
   .timeline-section p{
     margin:0;
@@ -2019,23 +2008,23 @@
       <div class="governance-diagram reveal reveal-delay-2">
         <div class="diagram-frame" data-animated="false">
           <div class="diagram-grid" role="group" aria-label="Diagram showing governance creating resilient enterprise platforms">
-            <button type="button" class="diagram-node diagram-node--defensible" data-node="defensible" data-order="1" aria-label="Decisions people can defend. Recommendations built around accountability, risk and decision confidence." aria-pressed="false">
+            <button type="button" class="diagram-node diagram-node--defensible" data-node="defensible" data-order="1" aria-pressed="false">
               <span class="diagram-node-title">Defensible recommendation</span>
               <p class="diagram-node-copy">Recommendations built around accountability, risk and decision confidence.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--future" data-node="future" data-order="2" aria-label="Architecture built to evolve. A platform architecture designed to evolve without creating technical debt." aria-pressed="false">
+            <button type="button" class="diagram-node diagram-node--future" data-node="future" data-order="2" aria-pressed="false">
               <span class="diagram-node-title">Future-fit architecture</span>
               <p class="diagram-node-copy">A platform architecture designed to evolve without creating technical debt.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--control" data-node="control" data-order="3" aria-label="Control that survives change. Operations remain stable through releases, reorganisations and regulatory change." aria-pressed="false">
+            <button type="button" class="diagram-node diagram-node--control" data-node="control" data-order="3" aria-pressed="false">
               <span class="diagram-node-title">Sustainable operational control</span>
               <p class="diagram-node-copy">Operations remain stable through releases, reorgs and regulatory change.</p>
             </button>
-            <button type="button" class="diagram-node diagram-node--ai" data-node="ai" data-order="4" aria-label="AI that moves safely into production. AI capability grows in a governed, accountable way instead of as a point solution." aria-pressed="false">
+            <button type="button" class="diagram-node diagram-node--ai" data-node="ai" data-order="4" aria-pressed="false">
               <span class="diagram-node-title">AI + Governance</span>
               <p class="diagram-node-copy">AI capability grows in a governed, accountable way instead of as a point solution.</p>
             </button>
-            <button type="button" class="diagram-center" data-node="center" data-order="5" aria-label="A platform people can govern at scale. One operating model connecting governance, architecture, control and AI." aria-pressed="false">
+            <button type="button" class="diagram-center" data-node="center" data-order="5" aria-pressed="false">
               <span class="diagram-core-label">Governance-powered Platform</span>
               <span class="diagram-center-title">One operational model, One trusted platform</span>
               <span class="diagram-center-copy">A single platform connecting governance, architecture, control and AI.</span>
@@ -2272,6 +2261,7 @@
             <a href="#about">About</a>
             <a href="#expertise">Expertise</a>
             <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
           </div>
           <div class="footer-col">
             <span class="h">Connect</span>
