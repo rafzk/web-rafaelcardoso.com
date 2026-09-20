@@ -400,10 +400,7 @@
     color:var(--charcoal);
     margin-bottom:28px;
   }
-  .hero-title span{
-    display:block;
-    white-space:nowrap;
-  }
+  .hero-title span{white-space:nowrap;}
   .hero-title .muted{color:var(--grey-500);}
   .hero-sub{
     font-size:clamp(16px, 1.6vw, 19px);
@@ -506,7 +503,6 @@
     font-size:clamp(28px, 3.4vw, 42px);
     letter-spacing:-0.015em;
     line-height:1.12;
-    max-width:640px;
   }
   .section-desc{
     font-size:16px;
@@ -1249,11 +1245,21 @@
   .footer-back:hover{color:var(--accent);}
 
   /* ---------- Responsive ---------- */
+  /* Between this and the 980px hamburger breakpoint, the full nav row
+     (brand + tagline + links + CTA) doesn't fit - drop the tagline first
+     since it's the least essential piece, before falling back to the
+     hamburger menu entirely. */
+  @media (max-width: 1100px){
+    .brand-name span{display:none;}
+    .nav-links{gap:24px;}
+    .nav-cta{gap:16px;}
+  }
   @media (max-width: 980px){
     .about-grid{grid-template-columns:1fr; gap:48px;}
     .expertise-grid{grid-template-columns:repeat(2, 1fr);}
     .expertise-outcome{min-height:3em;}
     .achieve-grid{grid-template-columns:repeat(2, 1fr);}
+    .achieve-item:nth-child(2n+1){border-left:none;}
     .community-grid{grid-template-columns:1fr;}
     .testi-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr; gap:56px;}
@@ -1270,6 +1276,8 @@
     .expertise-grid{grid-template-columns:1fr;}
     .expertise-outcome{min-height:0;}
     .achieve-grid{grid-template-columns:1fr;}
+    .achieve-item{border-left:none; border-top:1px solid rgba(255,255,255,0.08);}
+    .achieve-item:first-child{border-top:none;}
     .achieve-num{min-height:0;}
     .hero{padding:150px 0 90px;}
     .hero-ctas{flex-direction:column; align-items:stretch;}
@@ -1295,7 +1303,6 @@
     .section{padding:88px 0;}
     .coord{display:none;}
     .footer-links{gap:28px; flex-wrap:wrap;}
-    .brand-name span{display:none;}
     .nav-cta{gap:12px;}
     .nav-cta > .btn{display:none;}
     .mobile-menu-cta{display:inline-flex;}
@@ -1372,7 +1379,7 @@
 
     <div class="wrap hero-content">
       <div class="eyebrow reveal"><span class="dot"></span> Hi, I'm Rafael, passionate about ServiceNow and IRM</div>
-      <h1 class="reveal reveal-delay-1 hero-title"><span>Change that lasts.</span><span>Governance that holds.</span><span class="muted">Platforms people trust.</span></h1>
+      <h1 class="reveal reveal-delay-1 hero-title"><span>Change that lasts.</span> <span>Governance that holds.</span> <span class="muted">Platforms people trust.</span></h1>
       <p class="hero-sub reveal reveal-delay-2">Good architecture and clear decisions do more for the business case than any dashboard ever will.</p>
       <div class="hero-ctas reveal reveal-delay-3">
         <a href="#contact" class="btn btn-primary">Chat with a human</a>
@@ -1424,7 +1431,7 @@
           </div>
           <div class="about-philosophy reveal reveal-delay-2">
             <span class="tag">Philosophy</span>
-            <p class="quote">Build systems that people trust to operate, not just to launch.</p>
+            <p class="quote">I want people to trust what I build long after launch day, not just on it.</p>
           </div>
           <div class="timeline-chips reveal reveal-delay-2" style="margin-top:24px;">
             <span class="chip">ServiceNow MVP 2024–2026</span>
@@ -1584,7 +1591,7 @@
                   <p>Scalable, production-ready platforms that strengthened governance and supported confident decision-making.</p>
                 </div>
               </div>
-              <div class="timeline-chips reveal reveal-delay-4"><span class="chip">IRM / GRC</span><span class="chip">Solution Architecture</span><span class="chip">Pre-Sales</span></div>
+              <div class="timeline-chips reveal reveal-delay-4"><span class="chip">IRM / GRC</span><span class="chip">Solution Architecture</span><span class="chip">Team Lead</span></div>
             </div>
           </div>
         </article>
@@ -1595,7 +1602,7 @@
           <div class="timeline-main">
             <div class="timeline-side reveal reveal-delay-1">
               <p class="timeline-company">Sony Interactive Entertainment</p>
-              <small class="timeline-date">UK • Jul 2018 - Apr 2019</small>
+              <small class="timeline-date">London • Jul 2018 - Apr 2019</small>
             </div>
             <div class="timeline-content reveal reveal-delay-2">
               <h3>Rebuilding trust between customers and platform</h3>
@@ -1620,7 +1627,7 @@
           <div class="timeline-main">
             <div class="timeline-side reveal reveal-delay-1">
               <p class="timeline-company">Siemens SA</p>
-              <small class="timeline-date">Portugal • Aug 2016 - Jun 2018</small>
+              <small class="timeline-date">Lisbon • Aug 2016 - Jun 2018</small>
             </div>
             <div class="timeline-content reveal reveal-delay-2">
               <h3>Turning fragmented service into one governed foundation</h3>
