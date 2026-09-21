@@ -1,0 +1,31 @@
+# Rafael Cardoso
+
+> ServiceNow Technology & AI Governance consultant helping enterprise teams cut through complexity, strengthen ServiceNow governance and IRM, and build platforms people actually trust.
+
+## About
+
+Rafael Cardoso ("Raf") is a ServiceNow Technology and AI Governance specialist based between London and Lisbon, with 10+ years guiding enterprise platform and risk programmes across EMEA and the UK. He is a ServiceNow MVP (2024-2026), holds the ServiceNow CIS-GRC credential and a Certified Scrum Master certification, and currently works with Wrangu.
+
+## Expertise
+
+- Governed enterprise platforms: platform strategy, architecture and governance designed so capability grows without creating control gaps
+- Architecture that endures: platform governance architecture, solution architecture for complex estates, technical leadership for change
+- AI within the control framework: governed automation, script-driven decision support, AI risk and controls modelling
+- Transformation that holds: executive alignment, programme coherence, transformation governance
+
+## Experience
+
+- Wrangu - London, UK (Apr 2019-Present): reducing the complexity of enterprise risk
+- Sony Interactive Entertainment - London, UK (Jul 2018-Apr 2019): rebuilding trust between customers and platform
+- Siemens SA - Lisbon, Portugal (Aug 2016-Jun 2018): turning fragmented service into one governed foundation
+
+## Community
+
+Active ServiceNow MVP, volunteers with the Community IRM channels, and writes occasionally at the NowJedi blog.
+
+## Links
+
+- Website: https://rafaelcardoso.com
+- LinkedIn: https://linkedin.com/in/rafaelmcardoso
+- Blog (NowJedi): https://nowjedi.com
+- Email: hello@rafaelcardoso.com
