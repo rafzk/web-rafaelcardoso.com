@@ -166,6 +166,14 @@
   }
   .logo-variants > figure{padding:0; display:flex; flex-direction:column;}
   .logo-caption{border-top:1px solid var(--grey-200);}
+  /* The wordmark SVGs already carry their final colour - no invert/blend. */
+  .logo-stage.wordmark-stage img{width:min(100%, 440px); height:auto; filter:none !important; mix-blend-mode:normal !important;}
+  .wordmark-lockup{display:flex; flex-direction:column; align-items:stretch; gap:16px; width:min(100%, 440px);}
+  .wordmark-lockup img{width:100%; height:auto;}
+  .wordmark-lockup span{
+    font-family:var(--font-mono); font-size:10px; letter-spacing:0.32em; text-transform:uppercase;
+    color:var(--grey-500); text-align:center;
+  }
   .logo-stage.dark{background:var(--charcoal);}
   .logo-stage.soft{background:var(--grey-50);}
   .logo-stage.accent{background:var(--accent);}
@@ -398,6 +406,7 @@
     .brand span{display:none;}
     .font-card .specimen{font-size:44px;}
     .demo-stat .n{font-size:42px;}
+    .wordmark-lockup span{font-size:9px; letter-spacing:0.18em;}
   }
 </style>
 </head>
@@ -494,6 +503,31 @@
               <li>Mark + name set in IBM Plex Sans SemiBold, 12px gap at 36px mark size.</li>
               <li>The descriptor after the slash is Grey 600, Medium weight. Drop it first when space is tight.</li>
               <li>Informal contexts may use <b>Rafael Cardoso ("Raf")</b>, as in the site footer.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <h3>Wordmark</h3>
+        <div class="tiles cols-2 logo-variants">
+          <figure><div class="logo-stage dark wordmark-stage"><img src="wordmark-reversed.svg" alt="RAFAEL CARDOSO wordmark in white on charcoal"></div><div class="logo-caption"><span>Primary</span><span>White on Charcoal</span></div></figure>
+          <figure><div class="logo-stage wordmark-stage"><img src="wordmark.svg" alt="RAFAEL CARDOSO wordmark in charcoal on white"></div><div class="logo-caption"><span>Secondary</span><span>Charcoal on White</span></div></figure>
+        </div>
+        <div class="tiles cols-2" style="border-top:none;">
+          <div class="logo-stage dark wordmark-stage">
+            <div class="wordmark-lockup">
+              <img src="wordmark-reversed.svg" alt="">
+              <span>ServiceNow Technology &amp; AI Governance</span>
+            </div>
+          </div>
+          <div>
+            <ul class="rules">
+              <li>Montserrat ExtraLight (200), all caps, tracked +400. The letters are outlined in the SVG, so the font doesn't need to be installed.</li>
+              <li>Inspired by title cards like <i>The Mentalist</i>: thin, wide, lots of air, best on a dark ground. Use it for title slides, video, banners and covers.</li>
+              <li>Use it at 160px wide or more. Below that the thin strokes break up, so use the RAF mark instead.</li>
+              <li>Don't rebuild it in live text or bold it. Don't pair it with the RAF mark in the same row, because the two are alternatives.</li>
+              <li>Optional descriptor below: Plex Mono, caps, Grey 500 on dark, aligned to the wordmark's width.</li>
             </ul>
           </div>
         </div>
@@ -828,8 +862,10 @@
         <h2>Download the files</h2>
         <p class="section-desc">The originals served by the site. Grab them from here rather than screenshotting.</p>
       </div>
-      <div class="tiles cols-4">
+      <div class="tiles cols-3">
         <div class="asset"><div class="asset-thumb"><img src="logo.png" alt="" style="height:96px;"></div><span class="asset-name">RAF mark</span><span class="asset-meta">logo.png · 144×144</span><a class="dl" href="logo.png" download>Download ↓</a></div>
+        <div class="asset"><div class="asset-thumb" style="background:var(--charcoal); padding:0 20px;"><img src="wordmark-reversed.svg" alt="" style="width:100%; height:auto; mix-blend-mode:normal;"></div><span class="asset-name">Wordmark · reversed</span><span class="asset-meta">wordmark-reversed.svg · vector</span><a class="dl" href="wordmark-reversed.svg" download>Download ↓</a></div>
+        <div class="asset"><div class="asset-thumb" style="padding:0 20px;"><img src="wordmark.svg" alt="" style="width:100%; height:auto;"></div><span class="asset-name">Wordmark</span><span class="asset-meta">wordmark.svg · vector</span><a class="dl" href="wordmark.svg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb"><img src="apple-touch-icon.png" alt="" style="height:96px;"></div><span class="asset-name">App icon</span><span class="asset-meta">apple-touch-icon.png · 180px</span><a class="dl" href="apple-touch-icon.png" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb cover"><img src="og-image.jpg" alt=""></div><span class="asset-name">Social share image</span><span class="asset-meta">og-image.jpg · 1200×630</span><a class="dl" href="og-image.jpg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb cover"><img src="rafael-cardoso.jpg" alt="" style="object-position:50% 20%;"></div><span class="asset-name">Portrait</span><span class="asset-meta">rafael-cardoso.jpg · 1000×1500</span><a class="dl" href="rafael-cardoso.jpg" download>Download ↓</a></div>
@@ -839,7 +875,7 @@
           <div>
             <span class="label">Fonts</span>
             <p class="ts-body"><a href="https://fonts.google.com/specimen/IBM+Plex+Sans" style="color:var(--accent);">IBM Plex Sans</a> · <a href="https://fonts.google.com/specimen/Inter" style="color:var(--accent);">Inter</a> · <a href="https://fonts.google.com/specimen/IBM+Plex+Mono" style="color:var(--accent);">IBM Plex Mono</a></p>
-            <p class="note" style="margin-top:8px;">In PowerPoint / Word, fall back to Arial for Plex Sans and Inter, Consolas for Plex Mono.</p>
+            <p class="note" style="margin-top:8px;">In PowerPoint / Word, fall back to Arial for Plex Sans and Inter, Consolas for Plex Mono. <a href="https://fonts.google.com/specimen/Montserrat" style="color:var(--accent);">Montserrat</a> is only used for the wordmark and is already outlined in the SVGs.</p>
           </div>
           <div>
             <span class="label">Contact details</span>
