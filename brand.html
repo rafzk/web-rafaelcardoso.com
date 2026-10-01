@@ -182,10 +182,6 @@
   .lockup{flex-wrap:wrap; flex-shrink:1; min-width:0; font-size:17px; row-gap:6px;}
   .lockup img{width:40px; height:40px;}
   .lockup span{margin-left:0;}
-  /* logo.png is black on white - on dark grounds invert it rather than
-     shipping a second file, so both always match. */
-  .logo-stage.dark img, .logo-stage.accent img{filter:invert(1); mix-blend-mode:screen;}
-  .logo-stage.soft img{mix-blend-mode:multiply;}
   .logo-caption{
     display:flex; justify-content:space-between; gap:12px;
     font-family:var(--font-mono); font-size:11px; color:var(--grey-600);
@@ -481,7 +477,7 @@
       <div class="section-head">
         <span class="section-eyebrow">Logo</span>
         <h2>Logo family</h2>
-        <p class="section-desc">The solid R monogram is the site logo, used in the nav and footer next to the name. The RAFAEL CARDOSO wordmark is for title slides and covers. The original boxed "RAF" mark below is still valid, always in one colour: charcoal on light grounds, white on dark or accent grounds.</p>
+        <p class="section-desc">The solid R monogram is the site logo, used in the nav and footer next to the name. The RAFAEL CARDOSO wordmark is for title slides and covers. Both are always used in one colour: charcoal on light grounds, white on dark grounds.</p>
       </div>
 
       <div class="sub">
@@ -496,16 +492,6 @@
           <li>Use the outline version where the wordmark won't fit. Use the solid version for profile photos, app icons and favicons, where it sits on unknown backgrounds.</li>
           <li>Minimum size: 24px for the outline, 16px for the solid version.</li>
         </ul>
-      </div>
-
-      <div class="sub">
-        <h3>Original RAF mark</h3>
-        <div class="tiles cols-4 logo-variants">
-          <figure><div class="logo-stage"><img src="logo.png" alt="RAF mark on white"></div><div class="logo-caption"><span>Primary</span><span>on White</span></div></figure>
-          <figure><div class="logo-stage soft"><img src="logo.png" alt="RAF mark on light grey"></div><div class="logo-caption"><span>Primary</span><span>on Grey 50</span></div></figure>
-          <figure><div class="logo-stage dark"><img src="logo.png" alt="RAF mark in white on charcoal"></div><div class="logo-caption"><span>Reversed</span><span>on Charcoal</span></div></figure>
-          <figure><div class="logo-stage accent"><img src="logo.png" alt="RAF mark in white on accent blue"></div><div class="logo-caption"><span>Reversed</span><span>on Accent</span></div></figure>
-        </div>
       </div>
 
       <div class="sub">
@@ -540,9 +526,9 @@
           <div>
             <ul class="rules">
               <li>First name set free, surname in a box: Montserrat Medium (500), all caps, tracked +80. The box stroke is a little thinner than a letter stem. The letters are outlined in the SVG, so the font doesn't need to be installed.</li>
-              <li>Inspired by <i>The Mentalist</i> title card. The box echoes the boxed RAF mark. Use it for title slides, video, banners, covers and email signatures.</li>
-              <li>Use it at 140px wide or more. Below that, use the RAF mark instead.</li>
-              <li>Don't rebuild it in live text, move the box to the first name or box both words. Don't pair it with the RAF mark in the same row, because the two are alternatives.</li>
+              <li>Inspired by <i>The Mentalist</i> title card. The box is shared with the R monogram. Use it for title slides, video, banners, covers and email signatures.</li>
+              <li>Use it at 140px wide or more. Below that, use the monogram instead.</li>
+              <li>Don't rebuild it in live text, move the box to the first name or box both words. Don't pair it with the monogram in the same row, because the two are alternatives.</li>
               <li>Optional descriptor below: Plex Mono, caps, Grey 500 on dark, aligned to the wordmark's width.</li>
             </ul>
           </div>
@@ -554,17 +540,17 @@
           <div>
             <h3>Clear space</h3>
             <div class="clearspace">
-              <div class="clearspace-box"><span class="clearspace-tag">¼ × mark</span><img src="logo.png" alt="RAF mark with clear space marked"></div>
+              <div class="clearspace-box"><span class="clearspace-tag">¼ × mark</span><img src="monogram.svg" alt="R monogram with clear space marked"></div>
             </div>
             <p class="note" style="margin-top:14px;">Keep a margin of at least a quarter of the mark's width on every side. No text, edges or imagery inside it.</p>
           </div>
           <div>
             <h3>Minimum size</h3>
             <div class="sizes">
-              <figure><img src="logo.png" alt="" style="width:96px;height:96px;"><figcaption>96px</figcaption></figure>
-              <figure><img src="logo.png" alt="" style="width:48px;height:48px;"><figcaption>48px</figcaption></figure>
-              <figure><img src="logo.png" alt="" style="width:32px;height:32px;"><figcaption>32px</figcaption></figure>
-              <figure><img src="logo.png" alt="" style="width:24px;height:24px;"><figcaption>24px min</figcaption></figure>
+              <figure><img src="monogram.svg" alt="" style="width:96px;height:96px;"><figcaption>96px</figcaption></figure>
+              <figure><img src="monogram.svg" alt="" style="width:48px;height:48px;"><figcaption>48px</figcaption></figure>
+              <figure><img src="monogram.svg" alt="" style="width:32px;height:32px;"><figcaption>32px</figcaption></figure>
+              <figure><img src="monogram.svg" alt="" style="width:24px;height:24px;"><figcaption>24px min</figcaption></figure>
             </div>
             <p class="note" style="margin-top:14px;">24px on screen / 8mm in print. Below that, use the favicon files, which are drawn for small sizes.</p>
           </div>
@@ -574,10 +560,10 @@
       <div class="sub">
         <h3>Don't</h3>
         <div class="tiles donts">
-          <div class="dont-item"><div class="dont-stage"><img src="logo.png" alt="" style="transform:scaleX(1.5);"></div><p>Stretch or squash it.</p></div>
-          <div class="dont-item"><div class="dont-stage"><img src="logo.png" alt="" style="transform:rotate(-12deg);"></div><p>Rotate or tilt it.</p></div>
-          <div class="dont-item"><div class="dont-stage"><span style="display:inline-flex; background:#e8590c;"><img src="logo.png" alt="" style="mix-blend-mode:screen;"></span></div><p>Recolour it outside the palette.</p></div>
-          <div class="dont-item"><div class="dont-stage"><img src="logo.png" alt="" style="filter:drop-shadow(4px 6px 4px rgba(0,0,0,0.5));"></div><p>Add shadows, glows or effects.</p></div>
+          <div class="dont-item"><div class="dont-stage"><img src="monogram.svg" alt="" style="transform:scaleX(1.5);"></div><p>Stretch or squash it.</p></div>
+          <div class="dont-item"><div class="dont-stage"><img src="monogram.svg" alt="" style="transform:rotate(-12deg);"></div><p>Rotate or tilt it.</p></div>
+          <div class="dont-item"><div class="dont-stage"><svg width="80" height="80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="4.79" y="4.79" width="90.41" height="90.41" fill="none" stroke="#e8590c" stroke-width="5.59"/><path fill="#e8590c" d="M32.541428571428575 73.0V27.0H50.48142857142857Q59.418571428571425 27.0 64.5442857142857 31.23857142857143Q69.67 35.47714285714286 69.67 43.034285714285716Q69.67 48.028571428571425 67.37 51.61Q65.07 55.191428571428574 60.79857142857142 57.097142857142856Q56.527142857142856 59.002857142857145 50.48142857142857 59.002857142857145H36.15571428571429L39.112857142857145 55.980000000000004V73.0ZM63.29571428571428 73.0 51.59857142857143 56.308571428571426H58.629999999999995L70.45857142857143 73.0ZM39.112857142857145 56.63714285714286 36.15571428571429 53.417142857142856H50.284285714285716Q56.59285714285714 53.417142857142856 59.84571428571429 50.69Q63.09857142857143 47.962857142857146 63.09857142857143 43.034285714285716Q63.09857142857143 38.105714285714285 59.84571428571429 35.41142857142857Q56.59285714285714 32.71714285714286 50.284285714285716 32.71714285714286H36.15571428571429L39.112857142857145 29.431428571428576Z"/></svg></div><p>Recolour it outside the palette.</p></div>
+          <div class="dont-item"><div class="dont-stage"><img src="monogram.svg" alt="" style="filter:drop-shadow(4px 6px 4px rgba(0,0,0,0.5));"></div><p>Add shadows, glows or effects.</p></div>
         </div>
       </div>
     </div>
@@ -878,8 +864,7 @@
         <h2>Download the files</h2>
         <p class="section-desc">The originals served by the site. Grab them from here rather than screenshotting.</p>
       </div>
-      <div class="tiles cols-3">
-        <div class="asset"><div class="asset-thumb"><img src="logo.png" alt="" style="height:96px;"></div><span class="asset-name">RAF mark</span><span class="asset-meta">logo.png · 144×144</span><a class="dl" href="logo.png" download>Download ↓</a></div>
+      <div class="tiles cols-4">
         <div class="asset"><div class="asset-thumb" style="background:var(--charcoal); padding:0 20px;"><img src="wordmark-reversed.svg" alt="" style="width:100%; height:auto; mix-blend-mode:normal;"></div><span class="asset-name">Wordmark · reversed</span><span class="asset-meta">wordmark-reversed.svg · vector</span><a class="dl" href="wordmark-reversed.svg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb" style="padding:0 20px;"><img src="wordmark.svg" alt="" style="width:100%; height:auto;"></div><span class="asset-name">Wordmark</span><span class="asset-meta">wordmark.svg · vector</span><a class="dl" href="wordmark.svg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb"><img src="monogram.svg" alt="" style="height:96px;"></div><span class="asset-name">Monogram</span><span class="asset-meta">monogram.svg · vector</span><a class="dl" href="monogram.svg" download>Download ↓</a></div>
