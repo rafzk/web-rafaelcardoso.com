@@ -168,6 +168,7 @@
   .logo-caption{border-top:1px solid var(--grey-200);}
   /* The wordmark SVGs already carry their final colour - no invert/blend. */
   .logo-stage.wordmark-stage img{width:min(100%, 440px); height:auto; filter:none !important; mix-blend-mode:normal !important;}
+  .logo-stage.wordmark-stage img.mono{width:128px;}
   .wordmark-lockup{display:flex; flex-direction:column; align-items:stretch; gap:16px; width:min(100%, 440px);}
   .wordmark-lockup img{width:100%; height:auto;}
   .wordmark-lockup span{
@@ -534,6 +535,20 @@
       </div>
 
       <div class="sub">
+        <h3>Monogram</h3>
+        <div class="tiles cols-3 logo-variants">
+          <figure><div class="logo-stage wordmark-stage"><img src="monogram.svg" alt="R monogram in a charcoal box on white" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on light</span></div></figure>
+          <figure><div class="logo-stage dark wordmark-stage"><img src="monogram-reversed.svg" alt="R monogram in a white box on charcoal" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on dark</span></div></figure>
+          <figure><div class="logo-stage soft wordmark-stage"><img src="monogram-solid.svg" alt="White R on a solid charcoal square" class="mono"></div><div class="logo-caption"><span>Solid</span><span>avatars &amp; icons</span></div></figure>
+        </div>
+        <ul class="rules" style="margin-top:20px;">
+          <li>The R from the wordmark in a square box, so the monogram and the boxed surname read as one family.</li>
+          <li>Use the outline version where the wordmark won't fit. Use the solid version for profile photos, app icons and favicons, where it sits on unknown backgrounds.</li>
+          <li>Minimum size: 24px for the outline, 16px for the solid version.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
         <div class="tiles cols-2">
           <div>
             <h3>Clear space</h3>
@@ -866,6 +881,9 @@
         <div class="asset"><div class="asset-thumb"><img src="logo.png" alt="" style="height:96px;"></div><span class="asset-name">RAF mark</span><span class="asset-meta">logo.png · 144×144</span><a class="dl" href="logo.png" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb" style="background:var(--charcoal); padding:0 20px;"><img src="wordmark-reversed.svg" alt="" style="width:100%; height:auto; mix-blend-mode:normal;"></div><span class="asset-name">Wordmark · reversed</span><span class="asset-meta">wordmark-reversed.svg · vector</span><a class="dl" href="wordmark-reversed.svg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb" style="padding:0 20px;"><img src="wordmark.svg" alt="" style="width:100%; height:auto;"></div><span class="asset-name">Wordmark</span><span class="asset-meta">wordmark.svg · vector</span><a class="dl" href="wordmark.svg" download>Download ↓</a></div>
+        <div class="asset"><div class="asset-thumb"><img src="monogram.svg" alt="" style="height:96px;"></div><span class="asset-name">Monogram</span><span class="asset-meta">monogram.svg · vector</span><a class="dl" href="monogram.svg" download>Download ↓</a></div>
+        <div class="asset"><div class="asset-thumb" style="background:var(--charcoal);"><img src="monogram-reversed.svg" alt="" style="height:96px; mix-blend-mode:normal;"></div><span class="asset-name">Monogram · reversed</span><span class="asset-meta">monogram-reversed.svg · vector</span><a class="dl" href="monogram-reversed.svg" download>Download ↓</a></div>
+        <div class="asset"><div class="asset-thumb"><img src="monogram-solid.svg" alt="" style="height:96px; mix-blend-mode:normal;"></div><span class="asset-name">Monogram · solid</span><span class="asset-meta">monogram-solid.svg · vector</span><a class="dl" href="monogram-solid.svg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb"><img src="apple-touch-icon.png" alt="" style="height:96px;"></div><span class="asset-name">App icon</span><span class="asset-meta">apple-touch-icon.png · 180px</span><a class="dl" href="apple-touch-icon.png" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb cover"><img src="og-image.jpg" alt=""></div><span class="asset-name">Social share image</span><span class="asset-meta">og-image.jpg · 1200×630</span><a class="dl" href="og-image.jpg" download>Download ↓</a></div>
         <div class="asset"><div class="asset-thumb cover"><img src="rafael-cardoso.jpg" alt="" style="object-position:50% 20%;"></div><span class="asset-name">Portrait</span><span class="asset-meta">rafael-cardoso.jpg · 1000×1500</span><a class="dl" href="rafael-cardoso.jpg" download>Download ↓</a></div>
