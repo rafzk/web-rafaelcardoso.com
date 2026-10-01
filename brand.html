@@ -84,7 +84,7 @@
     font-family:var(--font-display); font-weight:600; font-size:15px;
     letter-spacing:0.01em; flex-shrink:0;
   }
-  .brand img{width:32px; height:32px; border-radius:6px;}
+  .brand img{width:32px; height:32px;}
   .brand span{color:var(--grey-600); font-weight:500; margin-left:4px;}
   .nav-links{display:flex; gap:28px; overflow-x:auto; scrollbar-width:none;}
   .nav-links::-webkit-scrollbar{display:none;}
@@ -415,7 +415,7 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="brand"><img src="logo.png" alt="" width="32" height="32">Rafael Cardoso <span>/ Brand</span></a>
+      <a href="/" class="brand"><img src="monogram-solid.svg" alt="" width="32" height="32">Rafael Cardoso <span>/ Brand</span></a>
       <div class="nav-links">
         <a href="#logo">Logo</a>
         <a href="#colour">Colour</a>
@@ -480,11 +480,26 @@
     <div class="wrap">
       <div class="section-head">
         <span class="section-eyebrow">Logo</span>
-        <h2>The RAF mark</h2>
-        <p class="section-desc">A boxed monogram of "RAF". It is always used as a single colour - charcoal on light grounds, white on dark or accent grounds. Next to the name it forms the lockup used in the site nav.</p>
+        <h2>Logo family</h2>
+        <p class="section-desc">The solid R monogram is the site logo, used in the nav and footer next to the name. The RAFAEL CARDOSO wordmark is for title slides and covers. The original boxed "RAF" mark below is still valid, always in one colour: charcoal on light grounds, white on dark or accent grounds.</p>
       </div>
 
       <div class="sub">
+        <h3>Monogram · primary logo</h3>
+        <div class="tiles cols-3 logo-variants">
+          <figure><div class="logo-stage wordmark-stage"><img src="monogram.svg" alt="R monogram in a charcoal box on white" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on light</span></div></figure>
+          <figure><div class="logo-stage dark wordmark-stage"><img src="monogram-reversed.svg" alt="R monogram in a white box on charcoal" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on dark</span></div></figure>
+          <figure><div class="logo-stage soft wordmark-stage"><img src="monogram-solid.svg" alt="White R on a solid charcoal square" class="mono"></div><div class="logo-caption"><span>Solid</span><span>avatars &amp; icons</span></div></figure>
+        </div>
+        <ul class="rules" style="margin-top:20px;">
+          <li>The R from the wordmark in a square box, so the monogram and the boxed surname read as one family.</li>
+          <li>Use the outline version where the wordmark won't fit. Use the solid version for profile photos, app icons and favicons, where it sits on unknown backgrounds.</li>
+          <li>Minimum size: 24px for the outline, 16px for the solid version.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>Original RAF mark</h3>
         <div class="tiles cols-4 logo-variants">
           <figure><div class="logo-stage"><img src="logo.png" alt="RAF mark on white"></div><div class="logo-caption"><span>Primary</span><span>on White</span></div></figure>
           <figure><div class="logo-stage soft"><img src="logo.png" alt="RAF mark on light grey"></div><div class="logo-caption"><span>Primary</span><span>on Grey 50</span></div></figure>
@@ -497,11 +512,11 @@
         <h3>Lockup</h3>
         <div class="tiles cols-2">
           <div class="logo-stage" style="min-height:160px;">
-            <span class="brand lockup"><img src="logo.png" alt="">Rafael Cardoso <span>/ ServiceNow Technology &amp; AI Governance</span></span>
+            <span class="brand lockup"><img src="monogram-solid.svg" alt="">Rafael Cardoso <span>/ ServiceNow Technology &amp; AI Governance</span></span>
           </div>
           <div>
             <ul class="rules">
-              <li>Mark + name set in IBM Plex Sans SemiBold, 12px gap at 36px mark size.</li>
+              <li>Solid R monogram + name, as in the site nav and footer. Name in IBM Plex Sans SemiBold, 12px gap at 36px mark size.</li>
               <li>The descriptor after the slash is Grey 600, Medium weight. Drop it first when space is tight.</li>
               <li>Informal contexts may use <b>Rafael Cardoso ("Raf")</b>, as in the site footer.</li>
             </ul>
@@ -532,20 +547,6 @@
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="sub">
-        <h3>Monogram</h3>
-        <div class="tiles cols-3 logo-variants">
-          <figure><div class="logo-stage wordmark-stage"><img src="monogram.svg" alt="R monogram in a charcoal box on white" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on light</span></div></figure>
-          <figure><div class="logo-stage dark wordmark-stage"><img src="monogram-reversed.svg" alt="R monogram in a white box on charcoal" class="mono"></div><div class="logo-caption"><span>Outline</span><span>on dark</span></div></figure>
-          <figure><div class="logo-stage soft wordmark-stage"><img src="monogram-solid.svg" alt="White R on a solid charcoal square" class="mono"></div><div class="logo-caption"><span>Solid</span><span>avatars &amp; icons</span></div></figure>
-        </div>
-        <ul class="rules" style="margin-top:20px;">
-          <li>The R from the wordmark in a square box, so the monogram and the boxed surname read as one family.</li>
-          <li>Use the outline version where the wordmark won't fit. Use the solid version for profile photos, app icons and favicons, where it sits on unknown backgrounds.</li>
-          <li>Minimum size: 24px for the outline, 16px for the solid version.</li>
-        </ul>
       </div>
 
       <div class="sub">
@@ -757,7 +758,7 @@
           <span class="label">Corner radius</span>
           <div class="radius-demo">
             <div style="border-radius:2px;">2px<br>buttons</div>
-            <div style="border-radius:6px;">6px<br>mark</div>
+            <div style="border-radius:0;">0<br>logos</div>
             <div style="border-radius:12px;">12px<br>avatars</div>
             <div style="border-radius:20px;">20px<br>cards</div>
           </div>
